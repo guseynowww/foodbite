@@ -1,0 +1,56 @@
+<template>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="social">
+                <div class="subtitle">Мы в социальных сетях:</div>
+                <a href="#" class="link">instagram</a>
+                <a href="#" class="link">facebook</a>
+            </div>
+            <div class="pepper">
+                <img src="icons/veg.svg" alt="pepper">
+            </div>
+            <div class="call">
+                <div class="subtitle">Или позвоните нам</div>
+                <a href="#" class="link">+380678341034</a>
+                <a href="#" class="link">+380500941356</a>
+            </div>
+        </div>
+    </footer>
+</template>
+
+<script>
+
+</script>
+
+<style>
+    .footer {
+        min-height: 180px;
+        background-color: #303030;
+        padding: 45px 0 50px 0;
+        color: #fff
+    }
+
+    .footer__container {
+        width: 1200px;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end
+    }
+
+    .footer .subtitle {
+        font-size: 20px
+    }
+
+    .footer .link {
+        display: block;
+        margin-top: 15px;
+        font-size: 16px;
+        color: #fff
+    }
+
+    .footer .call {
+        text-align: right
+    }
+</style>
