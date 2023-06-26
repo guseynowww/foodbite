@@ -7,7 +7,7 @@
             </div>
         </div>
         
-        <support-button @click="open" class="offer__btn">Связаться с нами</support-button>
+        <a href="/Contacts"><support-button hre @click="open" class="offer__btn">Связаться с нами</support-button></a>
     </div>
 </template>
 

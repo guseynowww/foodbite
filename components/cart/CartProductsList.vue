@@ -3,10 +3,10 @@
     <thead>
       <tr class="cart-list-header">
         <th />
-        <th>title</th>
-        <th>price</th>
-        <th>quantity</th>
-        <th>total</th>
+        <th>Название</th>
+        <th>Цена</th>
+        <th>Количество</th>
+        <th>Стоимость</th>
         <th />
       </tr>
     </thead>

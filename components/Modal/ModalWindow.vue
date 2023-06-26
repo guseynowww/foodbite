@@ -61,10 +61,10 @@ export default {
         overflow-y: auto;
     }
 
-    form {
+    /* form {
         display: flex;
         flex-direction: column;
-    }
+    } */
 
     .modal__close {
         position: absolute;

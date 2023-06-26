@@ -8,6 +8,7 @@
     <div class="navbar__list">
       <nuxt-link to="/MainPage" class="navbar__list-item">Главная</nuxt-link>
       <nuxt-link :to="{ name: 'index' }" class="navbar__list-item">Каталог</nuxt-link>
+      <nuxt-link to="/Contacts" class="navbar__list-item">Контакты</nuxt-link>
     </div>
     <nuxt-link
       :to="{ name: 'cart'}"
@@ -74,10 +75,9 @@ export default {
       margin-top: -0.5rem
       margin-left: -0.5rem
   &__list
-    width: 200px
+    width: 350px
     display: flex
     justify-content: space-between
-    margin-right: 396px
   &__list-item
       font-family: 'Roboto'
       font-style: normal

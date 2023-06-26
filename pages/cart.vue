@@ -10,7 +10,7 @@
           <img src="~/assets/icons/check.svg" alt="success">
         </div>
         <div class="cart-message__title">
-          Your order has been placed. We're going to contact you soon.
+          Ваш заказ успешно принят в работу. В ближайшее время с вами свяжутся! Спасибо за покупку.
         </div>
       </div>
       <div v-show="status === statuses.fail" class="cart-message">
@@ -18,7 +18,7 @@
           <img src="~/assets/icons/x-circle.svg" alt="fail">
         </div>
         <div class="cart-message__title">
-          Something went wrong. Try to place the order again or contact us using email.
+          Что-то пошло не так...
         </div>
       </div>
       <div v-show="status !== statuses.success">
@@ -26,16 +26,16 @@
         <div class="cart-checkout">
           <form @submit.prevent="onSubmit">
             <div class="field" :class="{ 'field--invalid': isFullNameInvalid }">
-              <label class="field__label">Full Name</label>
+              <label class="field__label">Имя</label>
               <input v-model="fullName" type="text" class="field__input">
             </div>
             <div class="field" :class="{ 'field--invalid': isEmailInvalid }">
-              <label class="field__label">Email</label>
+              <label class="field__label">Телефон</label>
               <input v-model="email" type="text" class="field__input">
             </div>
             <div class="field">
               <button type="submit" class="btn btn--primary btn--large">
-                Place an order
+                Заказать
               </button>
             </div>
           </form>
@@ -76,12 +76,12 @@ export default {
       } else {
         this.isFullNameInvalid = false
       }
-      if (!this.email.includes('@')) {
-        this.isEmailInvalid = true
-        valid = false
-      } else {
-        this.isEmailInvalid = false
-      }
+      // if (!this.email.includes('@')) {
+      //   this.isEmailInvalid = true
+      //   valid = false
+      // } else {
+      //   this.isEmailInvalid = false
+      // }
       return valid
     },
     async onSubmit () {
@@ -105,9 +105,10 @@ export default {
 .cart
   &-checkout
     padding-top: 1rem
-    width: 50%
-    float: right
+    width: 32%
+    /* float: right; */
     text-align: right
+    margin: 0 auto
     +mobile
       width: 100%
   &-message
@@ -123,4 +124,37 @@ export default {
     &__title
       font-size: 1.5rem
       font-weight: 500
+.field 
+    display: flex
+    flex-direction: column
+    padding: 0.5rem 0
+.field__label 
+    padding-bottom: 0.5rem
+    font-weight: 500
+    font-size: 1.1rem
+
+.field__input 
+    padding: 0.5rem
+    background: #fff
+    border: 2px solid #000
+    border-radius: 5px
+    font-size: 1.1rem
+
+.btn 
+  text-decoration: none
+    transition: .3s
+    border: none
+    cursor: pointer
+    border-radius: 5px
+.btn--primary
+    color: #fff
+    background: #000
+.btn--large
+    padding: 1rem 2rem
+    font-size: 1.4rem
+    font-weight: 500
+.btn:hover 
+    opacity: .7
+
+
 </style>

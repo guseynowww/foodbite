@@ -66,7 +66,7 @@
         {{ product.title }}
       </div>
       <div class="product-card__price">
-        {{ product.price | formatPrice }}
+        {{ product.price | formatPrice }} руб.
       </div>
     </nuxt-link>
   </div>

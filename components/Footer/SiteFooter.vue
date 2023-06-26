@@ -27,7 +27,11 @@
         min-height: 180px;
         background-color: #303030;
         padding: 45px 0 50px 0;
-        color: #fff
+        color: #fff;
+        position: absolute;
+        left: 0;
+        /* bottom: 0; */
+        right: 0;
     }
 
     .footer__container {
