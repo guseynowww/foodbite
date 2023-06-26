@@ -101,7 +101,8 @@ export default {
 @import "~/assets/sass/responsiveness"
 
 .cart-list
-  width: 100%
+  width: 1200px
+  margin: 0 auto
   +mobile
     display: block
     overflow-x: auto

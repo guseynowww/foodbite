@@ -7,7 +7,7 @@
                 <a href="#" class="link">facebook</a>
             </div>
             <div class="pepper">
-                <img src="icons/veg.svg" alt="pepper">
+                Food-bite
             </div>
             <div class="call">
                 <div class="subtitle">Или позвоните нам</div>
@@ -52,5 +52,13 @@
 
     .footer .call {
         text-align: right
+    }
+
+    .pepper {
+        font-size: 32px;
+        color: #fff;
+        font-weight: 700;
+        font-family: 'Roboto';
+        list-style-type: none;
     }
 </style>

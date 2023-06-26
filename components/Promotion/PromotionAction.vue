@@ -1,5 +1,4 @@
 <template>
-
       <div class="promotion">
         <div class="bgc_y"></div>
         <div class="container">
@@ -10,36 +9,79 @@
                     Каждому, кто закажет<br> доставку питание на неделю, будет предоставлена скидка<br> в размере
                     <span>20%!</span>
                     <br><br>
-                    Акция закончится 29 июня в 00:00
+                    Акция закончится 12 июля в 00:00!
                 </div>
             </div>
             <div class="promotion__timer">
                 <div class="title">Осталось до конца акции:</div>
                 <div class="timer">
                     <div class="timer__block">
-                        <span id="days">12</span>
+                        <span id="days">{{ days }}</span>
                         дней
                     </div>
                     <div class="timer__block">
-                        <span id="hours">20</span>
+                        <span id="hours">{{ hours }}</span>
                         часов
                     </div>
                     <div class="timer__block">
-                        <span id="minutes">56</span>
+                        <span id="minutes">{{ minutes }}</span>
                         минут
                     </div>
                     <div class="timer__block">
-                        <span id="seconds">20</span>
+                        <span id="seconds">{{ seconds }}</span>
                         секунд
                     </div>
                 </div>
             </div>
         </div>
       </div>  
-    
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      countdownDate: new Date('2023-07-12'), // Замените на дату окончания акции
+      
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+      
+      countdownInterval: null
+    };
+  },
+  mounted() {
+    this.startCountdown();
+  },
+  beforeDestroy() {
+    this.stopCountdown();
+  },
+  methods: {
+    startCountdown() {
+      this.countdownInterval = setInterval(() => {
+        const now = new Date();
+        const difference = this.countdownDate - now;
+        
+        if (difference <= 0) {
+          this.stopCountdown();
+          return;
+        }
+        
+        this.days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        this.hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        this.minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        this.seconds = Math.floor((difference % (1000 * 60)) / 1000);
+      }, 1000);
+    },
+    stopCountdown() {
+      clearInterval(this.countdownInterval);
+    }
+  }
+};
+</script>
+
+
 
 <style>
     .promotion {

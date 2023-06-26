@@ -36,5 +36,7 @@ export default {
 .products-list
   display: flex
   flex-wrap: wrap
-  margin: -$product-card-gap
+  width: 1200px
+  margin: 0 auto
+  
 </style>

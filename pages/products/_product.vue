@@ -140,6 +140,8 @@ export default {
 .product
   display: flex
   flex-wrap: wrap
+  width: 1200px
+  margin: 0 auto
 
   &--loading
     opacity: 0.3

@@ -59,7 +59,7 @@
               ${product.images[0]}?width=1144 4x
             `"
           >
-          <img :src="product.images[0]" :alt="product.title">
+          <img :src="product.images[0]" :alt="product.title" style="    width: 200px; height: 200px;">
         </picture>
       </div>
       <div class="product-card__title">

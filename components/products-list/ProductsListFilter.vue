@@ -60,6 +60,8 @@ export default {
 
 .filters
   display: flex
+  width: 1200px
+  margin: 0 auto
 
 .filter
   padding: 1rem 0

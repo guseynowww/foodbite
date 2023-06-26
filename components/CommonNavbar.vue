@@ -1,15 +1,18 @@
 <template>
   <div class="navbar">
     <div class="navbar__logo">
-      <nuxt-link :to="{ name: 'index' }">
-        <img src="~/assets/images/logo.svg" alt="logo">
+      <nuxt-link to="/MainPage">
+        Food-bite
       </nuxt-link>
+    </div>
+    <div class="navbar__list">
+      <nuxt-link to="/MainPage" class="navbar__list-item">Главная</nuxt-link>
+      <nuxt-link :to="{ name: 'index' }" class="navbar__list-item">Каталог</nuxt-link>
     </div>
     <nuxt-link
       :to="{ name: 'cart'}"
       class="navbar__cart"
     >
-    <nuxt-link to="/MainPage">Перейти на мою страницу</nuxt-link>
       <img src="~/assets/icons/cart.svg" alt="cart">
       <span
         v-if="qty > 0"
@@ -38,13 +41,22 @@ export default {
 @import "~/assets/sass/initial-variables"
 
 .navbar
+  width: 1200px
+  margin: 0 auto
   display: flex
   justify-content: space-between
   align-items: center
-  padding-bottom: 1rem
   &__logo
-    img
-      height: 35px
+    font-size: 32px
+    
+    font-weight: 700
+    font-family: 'Roboto'
+    list-style-type: none
+    a
+      list-style-type: none
+      color: #000
+      text-decoration: none
+
   &__cart
     border: 1px solid #F5F4F2
     border-radius: 0 0 0 $border-radius
@@ -61,4 +73,18 @@ export default {
       position: absolute
       margin-top: -0.5rem
       margin-left: -0.5rem
+  &__list
+    width: 200px
+    display: flex
+    justify-content: space-between
+    margin-right: 396px
+  &__list-item
+      font-family: 'Roboto'
+      font-style: normal
+      font-weight: 700
+      font-size: 18px
+      line-height: 21px
+      color: #303030
+      list-style-type: none
+      text-decoration: none
 </style>

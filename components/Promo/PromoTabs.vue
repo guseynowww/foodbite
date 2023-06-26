@@ -1,17 +1,20 @@
  <template>
     <div class="promo">
         <div class="promo__tabs">
-            <transition name="fade">
-                <component :is="tabs[activeTab].component"></component>
-            </transition>
+          <div class="tab__content" :class="{ fade: name === selectedName }">
+            <img src="@/assets/images/tabs/fitness.svg" alt="fitness.svg" class="tab_img">
+            <div class="tab__descr">
+                Мы предлагаем широкий выбор блюд, разработанных нашими опытными повара. Наше меню состоит из свежих и натуральных ингредиентов, которые помогут вам достичь ваших целей по правильному питанию. Будь то контроль веса, поддержание энергии или укрепление вашего организма.
+            </div>
+          </div>
             <div class="tabs_header">
-                <div class="tabs_title">Выберите стиль питания</div>
+                <div class="tabs_title">Разные стили питания</div>
                 <ul class="tabs__list">
                     <li 
                         v-for="(tab, index) in tabs"
                         :key="index"
+                        :class="{ active: activeTab === index }"
                         @click="activeTab = index"
-                        :class="{ selected: name === selectedName }"
                     >
                         {{ tab.label }}
                     </li>
@@ -20,22 +23,40 @@
         </div>
     </div>
 </template>
-<!-- <script>
-import { ref, provide } from 'vue';
 
+<script>
+import Tab1 from '~/components/Promo/Tab1.vue';
+import Tab2 from '~/components/Promo/Tab2.vue';
+import Tab3 from '~/components/Promo/Tab1.vue';
+import Tab4 from '~/components/Promo/Tab2.vue';
 export default {
-   setup (props, { slots }) {
-    const tabNames = ref(slots.default().map((tab) => tab.props.name))
-    const selectedName = ref(tabNames.value[0])
-    
-    provide("selectedName", selectedName)
+    components: {
+        Tab1,
+        Tab2,
+        Tab3,
+        Tab4
+    },
+  data() {
     return {
-        tabNames,
-        selectedName
-    }
-   }
-}
-</script> -->
+      activeTab: 0,
+      tabs: [
+        {
+          label: 'Фитнесс',
+          component: 'Tab1' 
+        },
+        {
+          label: 'Премиум',
+          component: 'Tab2' 
+        },
+        {
+          label: 'Постное',
+          component: 'Tab3' 
+        },
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="scss" >
 
@@ -97,6 +118,33 @@ export default {
 
     }
 
+    .tab_content {
+        display: flex;
+
+    }
+
+    .tab_img {
+        width: 850px;
+        height: 545px;
+    }
+
+    .tab__descr {
+        position: absolute;
+        margin-top: -300px;
+        margin-left: 410px;
+        width: 550px;
+        height: 359px;
+        background: rgba(251, 254, 93, .8);
+        padding: 50px;
+        font-size: 24px;
+        font-weight: 300;
+        line-height: 36px;
+        color: rgba(0, 0, 0, .7);
+        box-sizing: border-box;
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
+    }
+
+
     .promo__lifetext {
         font-family: 'Roboto';
         font-style: normal;
@@ -107,76 +155,18 @@ export default {
         margin-top: 33px;
         margin-left: 33px;
     }
-</style>
 
+    .tabs div.active {
+      font-weight: bold;
+    }
 
+    // .fade-enter-active,
+    // .fade-leave-active {
+    //   transition: opacity 0.5s;
+    // }
 
-
-
-
-
-
-<!-- 
-<template>
-  <div>
-    <div class="tabs">
-      <div
-        v-for="(tab, index) in tabs"
-        :key="index"
-        :class="{ active: activeTab === index }"
-        @click="activeTab = index"
-      >
-        {{ tab.label }}
-      </div>
-    </div>
-    
-    <transition name="fade">
-      <component :is="tabs[activeTab].component"></component>
-    </transition>
-  </div>
-</template> -->
-
-<script>
-import Tab1 from '~/components/Promo/Tab1.vue';
-import Tab2 from '~/components/Promo/Tab2.vue';
-export default {
-    components: {
-        Tab1,
-        Tab2
-    },
-  data() {
-    return {
-      activeTab: 0, // Индекс активной вкладки
-      tabs: [
-        {
-          label: 'Вкладка 1',
-          component: 'Tab1' // Имя компонента для первой вкладки
-        },
-        {
-          label: 'Вкладка 2',
-          component: 'Tab2' // Имя компонента для второй вкладки
-        },
-        // Добавьте дополнительные вкладки по необходимости
-      ]
-    };
-  }
-};
-</script>
-
-<style>
-/* Стили для активной вкладки */
-.tabs div.active {
-  font-weight: bold;
-}
-
-/* Анимация перехода между вкладками */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+    // .fade-enter,
+    // .fade-leave-to {
+    //   opacity: 0;
+    // } 
 </style>
